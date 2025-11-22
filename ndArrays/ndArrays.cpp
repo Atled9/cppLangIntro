@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+	//2-dimensional array
+	//Arrays must be initialized with the column size
+	std::string cars[][3] = {{"Mustang", "Escape", "F-150"},
+				{"Corvette", "Equinox", "Silverado"},
+				{"Challenger", "Durango", "Ram 1500"}};
+	/*
+	std::cout << cars[0][0] << ' ';
+	std::cout << cars[0][1] << ' ';
+	std::cout << cars[0][2] << '\n';
+
+	std::cout << cars[1][0] << ' ';
+	std::cout << cars[1][1] << ' ';
+	std::cout << cars[1][2] << '\n';
+
+	std::cout << cars[2][0] << ' ';
+	std::cout << cars[2][1] << ' ';
+	std::cout << cars[2][2] << '\n';
+	*/
+	//Iterative approach
+	int numRows = sizeof(cars)/sizeof(cars[0]); //size of array / size of row in array
+	int numColumns = sizeof(cars[0])/sizeof(cars[0][0]); //size of row / size of element in row
+	std::cout << "Using the for loop\n";	
+	for (int i = 0; i < numRows; i++) {
+		for (int j = 0; j < numColumns; j++) {
+			std::cout << cars[i][j] << ' ';
+		}
+		std::cout << '\n';
+	}
+
+	return 0;
+}

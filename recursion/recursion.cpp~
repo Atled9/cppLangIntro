@@ -1,0 +1,76 @@
+#include <iostream>
+
+void iterWalk(int steps);
+void recWalk(int steps);
+void infiniteRecWalk(int steps);
+
+int iterFact(int num);
+int recFact(int num);
+
+int main() {
+	//A programming technique where a function
+	//invokes itself from within. This can break
+	//a complex concept in repeatable single steps
+	
+	//Iterative VS Recursive
+	
+	//Advantages of Recursion: uses less code and
+	//code is cleaner. Useful for sorting and
+	//searching algorithms
+	
+	//Disadvantages of Recursion: uses more memory
+	//and is slower
+	/*
+	std::cout << "iterative steps\n";	
+	iterWalk(100);
+
+	std::cout << '\n';
+
+	std::cout << "recursive steps\n";
+	recWalk(100);
+	*/
+	//infiniteRecWalk(0);
+	
+	int num;
+	std::cout << "Enter a number: ";
+	std::cin >> num;
+
+	std::cout << iterFact(num) << '\n';
+	std::cout << recFact(num) << '\n';
+
+	return 0;
+}
+
+void iterWalk(int steps) {
+	for (int i = 0; i < steps; i++) {
+		std::cout << "You take a step\n";
+	}
+}
+
+void recWalk(int steps) {
+	if (steps > 0) {
+		std::cout << "You take a step\n";
+		recWalk(steps - 1);
+	}
+}
+
+void infiniteRecWalk(int steps) {
+	//this function does not have a base case
+	//it will not make use of the steps parameter
+	//using it may result in a stack overflow
+	std::cout << "You take a step\n";
+	infiniteRecWalk(steps - 1);
+}
+
+int iterFact(int num) {
+	int fact = 1;
+
+	for (int i = 2; i <= num; i++) {
+		fact *= i; 
+	}
+	return fact;
+}
+
+int recFact(int num) {
+	num ? num * recFact(num - 1) : 1;
+}

@@ -1,0 +1,58 @@
+#include <iostream>
+
+int getDigit(const int number);
+int sumOddDigits(const std::string cardNumber);
+int sumEvenDigits(const std::string cardNumber);
+
+int main() {
+	//check if a credit card number is valid or not
+	//using the Luhn algorithm (also called the 
+	//mod 10 algorithm)
+	
+	std::string cardNumber;
+	int result = 0;
+
+	std::cout << "Enter a credit card #: ";
+	std::cin >> cardNumber;
+
+	result = sumEvenDigits(cardNumber) + sumOddDigits(cardNumber);
+
+	if (!(result % 10)) {
+		std::cout << cardNumber << " is valid\n";
+	}
+	else {
+		std::cout << cardNumber << " is not valid\n";
+	}
+	return 0;
+}
+
+int getDigit(const int number) {
+	//returns the digit sum if number is greater than 9
+	return (number % 10) + (number / 10);
+}
+int sumOddDigits(const std::string cardNumber) {
+	int sum = 0;
+
+	// cardNumber.size() - 1 would be the last digit
+	for (int i = cardNumber.size() - 1; i >= 0; i -= 2) {
+		//sum is an int type variable. If we assign a character to it,
+		//it will translate the chatacter to its ASCII decimal value.
+		//Thus we have to subract by 48 ('0') so that the variable
+		//receives the true value
+		sum += cardNumber[i] - 48;
+	}
+	return sum;
+}
+int sumEvenDigits(const std::string cardNumber) {
+	int sum = 0;
+
+	// cardNumber.size() - 1 would be the last digit
+	for (int i = cardNumber.size() - 2; i >= 0; i -= 2) {
+		//getDigit() has an int type variable as its parameter.
+		//If we pass in a character, it will translate the character 
+		//to its ASCII decimal value. Thus we have to subract by 48 ('0')
+		//so that the function receives the true value
+		sum += getDigit((cardNumber[i] - 48) * 2);
+	}
+	return sum;
+}

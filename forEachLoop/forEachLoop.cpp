@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+	/*Loop that eases traversal over an iterable
+	 * data set*/
+	std::string students[] = {"Chikn Nuggit", "Fwench Fwy", "Slushi", "Onyn Ring"};
+	for (int i = 0; i < sizeof(students)/sizeof(std::string); i++) {
+		std::cout << students[i] << '\n';
+	}
+	//for loops give you more control over iteration, but they can be syntactically dense
+	//
+	//foreach loops can only iterate forward over a data set
+	std::cout << '\n';
+	for (std::string student : students) {
+		std::cout << student << '\n';
+	}
+	
+	int grades[] = {85, 100, 90, 82};
+	for (int grade : grades) {
+		std::cout << grade << '\n';
+	}	
+	return 0;
+}

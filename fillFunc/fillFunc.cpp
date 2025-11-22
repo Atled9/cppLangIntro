@@ -1,0 +1,21 @@
+#include <iostream>
+
+int main() {
+	//fill() fills a range of elements with a specified value
+	//fill(begin, end, value)
+	//std::string foods[10] = {"cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes", "cupcakes"};	
+	
+	
+	const int SIZE = 99;
+	std::string foods[SIZE];
+	//the beginning is the array name, and the ending is the
+	//array name plus the size of the array
+	fill(foods, foods + SIZE/3, "cupcakes");
+	fill(foods + SIZE/3, foods + 2 * (SIZE/3), "pancakes");
+	fill(foods + 2 * (SIZE/3), foods + SIZE, "waffles");
+	
+	for (std::string food : foods) {
+		std::cout << food << '\n';
+	}
+	return 0;
+}

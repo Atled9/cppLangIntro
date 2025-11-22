@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+	int num;
+	std::cout << "Enter a number: ";
+	std::cin >> num;
+
+	if (!(num % 2)) {
+		std::cout << "This number is even\n";
+	}
+	else {
+		std::cout << "This number is odd\n";
+	}
+
+	return 0;
+}

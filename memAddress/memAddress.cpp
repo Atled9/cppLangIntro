@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+	//memory address is a location in memory where data is stored
+	//a memory address can be accessed with & (address-of operator)
+
+	std::string name = "Atled";
+	int age = 19;
+	bool student = true;
+	
+	std::cout << &name << '\n';
+	std::cout << &age << '\n'; // this took up 4 bytes of memory (the address number is 4 positions lower after "name")
+	std::cout << &student << '\n'; // this took up 1 byte of memory (the address number is 1 position lower after "age")
+	std::cout << sizeof(int) << '\n';
+	std::cout << sizeof(bool) << '\n';	
+	return 0;
+}

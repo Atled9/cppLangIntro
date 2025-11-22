@@ -1,0 +1,52 @@
+#include <iostream>
+
+struct Car {
+	std::string model;
+	int year;
+	std::string color;
+};
+
+void printCar(Car car);
+void printCarByRef(Car &car);
+void paintCar(Car car, std::string color);
+
+int main() {
+	Car car1;
+	Car car2;
+
+	car1.model = "Tacoma";
+	car1.year = 2006;
+	car1.color = "White";
+	
+	car2.model = "MX5";
+	car2.year = 2015;
+	car2.color = "Blue";
+
+	paintCar(car1, "Teal");
+	paintCar(car2, "Red");
+	printCarByRef(car1);
+	printCarByRef(car2);	
+	return 0;
+}
+//Structs pass by value rather than by reference.
+//If we pass a struct as an argument, we're creating
+//a copy of the original struct
+void printCar(Car car) {
+	std::cout << &car << '\n';	
+	std::cout << car.model << '\n';
+	std::cout << car.year << '\n';
+	std::cout << car.color << '\n';
+}
+//...Unless we use the address-of operator in the
+//parameter for the struct. Then it passes by reference
+//to the original struct
+void printCarByRef(Car &car) {
+	std::cout << &car << '\n';	
+	std::cout << car.model << '\n';
+	std::cout << car.year << '\n';
+	std::cout << car.color << '\n';
+}
+
+void paintCar(Car car, std::string color) {
+	car.color = color;
+}
